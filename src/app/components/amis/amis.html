@@ -1,0 +1,26 @@
+<section class="card" id="amis">
+  <div class="icon">👥</div>
+  <div>
+    <h2>Liste des amis</h2>
+
+    <!-- Modifier les noms : chaque input est lié à elt.name (two-way binding) -->
+    <div class="edit">
+      @for (elt of friends; track $index) {
+        <input type="text" [(ngModel)]="elt.name" />
+      }
+    </div>
+
+    <!-- La liste se met à jour automatiquement quand on modifie un input -->
+    <ul>
+      @for (elt of friends; track $index) {
+        <li>{{ elt.name }}</li>
+      }
+    </ul>
+
+    <!-- Ajouter un ami -->
+    <div class="ajout">
+      <input type="text" placeholder="Nom de l'ami" [(ngModel)]="nouvelAmi" />
+      <button (click)="ajouterAmi()">Ajouter</button>
+    </div>
+  </div>
+</section>

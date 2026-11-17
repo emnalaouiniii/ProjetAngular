@@ -1,0 +1,19 @@
+<section class="card" id="notifications">
+  <div class="icon">🔔</div>
+  <div>
+    <h2>Zone de notifications</h2>
+    <p>Vous avez {{ notifications.length }} nouvelles notifications.</p>
+
+    <!-- Event binding : inverse la valeur de afficher à chaque clic -->
+    <button (click)="afficher = !afficher">
+      {{ afficher ? 'Masquer' : 'Afficher' }} les notifications
+    </button>
+
+    <!-- Contrôle de flux : la liste n'apparaît que si afficher est true -->
+    @if (afficher) {
+      @for (n of notifications; track n) {
+        <p class="notification">{{ n }}</p>
+      }
+    }
+  </div>
+</section>
